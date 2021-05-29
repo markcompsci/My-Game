@@ -1,3 +1,6 @@
+scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    tiles.setWallAt(tiles.getTileLocation(-1, -1), true)
+})
 info.onCountdownEnd(function () {
     game.showLongText("Wow! You ate a lot of flies!", DialogLayout.Center)
 })
@@ -7,7 +10,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     info.changeScoreBy(1)
 })
 let Fly: Sprite = null
-info.startCountdown(20)
+scene.setBackgroundColor(3)
+info.startCountdown(60)
+tiles.setTilemap(tilemap`level1`)
 let Frog = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
